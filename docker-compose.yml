@@ -1,0 +1,11 @@
+services:
+  frontend:
+    build: .
+    container_name: ledgerlens_frontend
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      - VITE_API_BASE_URL=/api/v1
+    extra_hosts:
+      - "backend:host-gateway"
